@@ -1,0 +1,42 @@
+# Configuracion de ejemplo de robot_localization (ekf_node) para entender
+# que hace. Antes de usarla, comprueba los topics reales del simulador:
+#   ros2 topic list | grep -E "odom|imu"
+# y cambia odom0 / imu0 si no coinciden.
+#
+# Para lanzarla (ajustando la ruta):
+#   ros2 run robot_localization ekf_node --ros-args --params-file ekf_ejemplo.yaml
+#
+# OJO: el TurtleBot 4 ya publica odom -> base_link. Si lanzas este EKF con
+# publish_tf: true habra dos nodos publicando la misma transformada. Para
+# experimentar, deja publish_tf: false y compara /odometry/filtered con /odom.
+
+ekf_filter_node:
+  ros__parameters:
+    frequency: 30.0          # Hz a los que publica la estimacion
+    two_d_mode: true         # robot de suelo: ignora z, roll y pitch
+    publish_tf: false        # ver aviso de arriba
+
+    map_frame: map
+    odom_frame: odom
+    base_link_frame: base_link
+    world_frame: odom        # EKF "local": estimacion continua, sin saltos
+
+    # Odometria de ruedas. Matriz de 15 booleanos, en este orden:
+    #   x, y, z,  roll, pitch, yaw,  vx, vy, vz,  vroll, vpitch, vyaw,  ax, ay, az
+    # De las ruedas nos fiamos de las VELOCIDADES (vx y vyaw), no de la
+    # posicion acumulada, que deriva cuando derrapan.
+    odom0: /odom
+    odom0_config: [false, false, false,
+                   false, false, false,
+                   true,  false, false,
+                   false, false, true,
+                   false, false, false]
+
+    # IMU: buena para el giro (vyaw) y la aceleracion lineal (ax).
+    imu0: /imu
+    imu0_config: [false, false, false,
+                  false, false, false,
+                  false, false, false,
+                  false, false, true,
+                  true,  false, false]
+    imu0_remove_gravitational_acceleration: true

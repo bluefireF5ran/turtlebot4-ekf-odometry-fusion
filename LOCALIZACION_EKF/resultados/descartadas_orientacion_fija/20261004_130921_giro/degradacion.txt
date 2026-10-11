@@ -1,0 +1,1 @@
+odom: --escala-v 1.0 --escala-w 1.05 --sesgo-w 0.01 | imu: --ruido-w 0.0015 --sesgo-w 0.0 | puntos: -3.0,1.0 -3.0,-3.1 3.0,-3.1 3.0,1.0 x3

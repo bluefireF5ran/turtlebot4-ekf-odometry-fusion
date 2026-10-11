@@ -1,0 +1,43 @@
+# robot_localization para el experimento: fusiona la odometria DEGRADADA con
+# la IMU del simulador. Se lanza con:
+#   ros2 run robot_localization ekf_node --ros-args --params-file ekf_tb4.yaml -p use_sim_time:=true
+#
+# publish_tf: false a proposito. Nav2 sigue usando la odom -> base_link buena del
+# simulador; este EKF solo publica /odometry/filtered para medirlo. Asi el
+# experimento observa sin tocar al robot.
+#
+# Antes de nada: ros2 topic list | grep -E "odom|imu"  y ajusta imu0 si no es /imu.
+
+ekf_filter_node:
+  ros__parameters:
+    use_sim_time: true
+    frequency: 30.0
+    two_d_mode: true
+    publish_tf: false
+    map_frame: map
+    odom_frame: odom
+    base_link_frame: base_link
+    world_frame: odom
+
+    # Orden de la matriz: x y z, roll pitch yaw, vx vy vz, vroll vpitch vyaw, ax ay az
+    # De las ruedas, solo velocidades: la pose integrada es justo lo que deriva.
+    odom0: /odom_degradada
+    odom0_config: [false, false, false,
+                   false, false, false,
+                   true,  true,  false,
+                   false, false, true,
+                   false, false, false]
+    odom0_differential: false
+
+    # De la IMU, la velocidad de giro. La aceleracion la dejamos fuera: integrarla
+    # dos veces para sacar posicion deriva mucho mas rapido que las ruedas.
+    # VARIANTE para el informe: pon vyaw de odom0 a false y comprueba que el
+    # giro sale solo de la IMU.
+    imu0: /imu
+    imu0_config: [false, false, false,
+                  false, false, false,
+                  false, false, false,
+                  false, false, true,
+                  false, false, false]
+    imu0_differential: false
+    imu0_remove_gravitational_acceleration: true

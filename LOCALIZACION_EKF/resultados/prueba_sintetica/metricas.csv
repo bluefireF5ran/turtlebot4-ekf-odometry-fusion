@@ -1,0 +1,3 @@
+ejecucion,estimador,recorrido_m,ate_inicio_m,ate_umeyama_m,error_final_m,error_final_pct,rpe_tras_pct,rpe_giro_grad_m,escala_dist,escala_giro,error_yaw_final_grad
+prueba_sintetica,ekf,23.93,0.0612,0.038,0.0166,0.07,2.83,0.051,1.03,0.9997,-0.35
+prueba_sintetica,odom_degradada,23.93,1.217,0.6529,2.2129,9.25,5.34,4.527,1.03,1.102,110.21

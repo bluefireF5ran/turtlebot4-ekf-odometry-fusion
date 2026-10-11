@@ -1,0 +1,5 @@
+ejecucion,estimador,recorrido_m,ate_inicio_m,ate_umeyama_m,error_final_m,error_final_pct,rpe_tras_pct,rpe_giro_grad_m,escala_dist,escala_giro,error_yaw_final_grad
+20261004_140422_imu_sesgo,ekf,62.29,1.2054,0.6137,2.3627,3.79,1.95,0.693,1.0198,1.0372,40.14
+20261004_140422_imu_sesgo,odom_degradada,62.29,4.2799,3.4967,4.1747,6.7,5.95,5.297,1.02,1.2557,275.8
+20261004_140422_imu_sesgo,odom_simulador,62.29,1.9448,1.0198,3.6609,5.88,1.81,1.537,1.0,1.0602,64.87
+20261004_140422_imu_sesgo,slam,62.29,0.2141,0.1851,0.0427,0.07,8.18,1.234,0.9576,1.0001,0.08

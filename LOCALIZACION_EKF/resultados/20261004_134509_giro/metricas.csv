@@ -1,0 +1,5 @@
+ejecucion,estimador,recorrido_m,ate_inicio_m,ate_umeyama_m,error_final_m,error_final_pct,rpe_tras_pct,rpe_giro_grad_m,escala_dist,escala_giro,error_yaw_final_grad
+20261004_134509_giro,ekf,62.28,0.3,0.1583,0.6082,0.98,0.34,0.203,1.0,1.0092,9.99
+20261004_134509_giro,odom_degradada,62.28,4.247,3.4627,4.0468,6.5,5.38,5.289,1.0,1.2559,276.98
+20261004_134509_giro,odom_simulador,62.28,1.9531,1.018,3.6594,5.88,1.84,1.574,1.0,1.0603,65.31
+20261004_134509_giro,slam,62.28,0.2613,0.1778,0.0749,0.12,8.02,1.296,0.9596,0.9996,-0.42

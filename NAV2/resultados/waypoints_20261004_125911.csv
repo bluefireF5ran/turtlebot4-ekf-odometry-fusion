@@ -1,0 +1,5 @@
+vuelta,punto,x,y,resultado,segundos,recuperaciones
+1,1,-3.0,1.0,exito,31.0,0
+1,2,-3.0,-3.1,exito,20.0,0
+1,3,3.0,-3.1,exito,22.6,0
+1,4,3.0,1.0,exito,20.9,0

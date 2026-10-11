@@ -1,0 +1,5 @@
+ejecucion,estimador,recorrido_m,ate_inicio_m,ate_umeyama_m,error_final_m,error_final_pct,rpe_tras_pct,rpe_giro_grad_m,escala_dist,escala_giro,error_yaw_final_grad
+20261004_125855_prueba_humo,ekf,21.02,0.1099,0.062,0.2221,1.06,1.86,0.235,1.0205,1.0081,2.94
+20261004_125855_prueba_humo,odom_degradada,21.02,2.938,1.6945,5.5053,26.18,6.92,6.737,1.02,1.2637,95.52
+20261004_125855_prueba_humo,odom_simulador,21.02,0.9906,0.4592,1.6608,7.9,2.41,2.452,1.0,1.0619,22.43
+20261004_125855_prueba_humo,slam,21.02,0.1744,0.153,0.0683,0.33,6.09,1.637,0.9863,0.9956,-1.61
